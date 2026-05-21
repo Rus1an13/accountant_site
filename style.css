@@ -135,90 +135,179 @@ body {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 .search-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px; /* Фиксированная максимальная ширина */
-    margin: 0 auto; /* Центрирование контейнера */
-    padding: 15px 20px;
-    /*background-color: #fff;*/
-    /*border-bottom: 1px solid #e0e0e0;*/
-    box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  box-sizing: border-box;
 }
 
 .search-bar-item {
-    flex: 1; /* Равномерное распределение пространства */
+  flex: 1;
 }
 
 /* Логотип — выравниваем по левому краю */
 .search-bar-item:first-child {
-    text-align: left;
-    flex: 0 0 auto; /* Фиксированный размер для логотипа */
+  text-align: left;
+  flex: 0 0 auto;
 }
 
 /* Форма поиска — занимает основное пространство */
 .search-bar-item:nth-child(2) {
-    flex: 1 1 400px; /* Основной элемент, может сжиматься/расширяться */
-    text-align: center;
+  flex: 1 1 400px;
+  text-align: center;
 }
 
 /* Корзина — выравниваем по правому краю */
 .search-bar-item:last-child {
-    text-align: right;
-    flex: 0 0 auto; /* Фиксированный размер для корзины */
+  text-align: right;
+  flex: 0 0 auto;
 }
 
 .logo img {
-    height: 40px;
-    width: auto;
+  height: 40px;
+  width: auto;
 }
 
 .search-form {
-    display: flex;
-    justify-content: center;
-    max-width: 800px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .search-form input {
-    flex: 1;
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    border-radius: 16px 0 0 16px;
-    font-size: 14px;
-    outline: none;
-    min-width: 200px;
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 16px 0 0 16px;
+  font-size: 14px;
+  outline: none;
+  min-width: 200px;
 }
 
 .search-form input:focus {
-    border-color: #007bff;
+  border-color: #007bff;
 }
 
 .search-form button {
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    border-left: none;
-    background: #f8f9fa;
-    border-radius: 0 16px 16px 0;
-    cursor: pointer;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-left: none;
+  background: #f8f9fa;
+  border-radius: 0 16px 16px 0;
+  cursor: pointer;
 }
 
 .search-form button:hover {
-    background: #e9ecef;
+  background: #e9ecef;
 }
 
 .cart-link {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    white-space: nowrap;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  white-space: nowrap;
 }
 
 .cart-link:hover {
-    color: #007bff;
+  color: #007bff;
 }
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+  .search-bar {
+    flex-direction: column;
+    gap: 15px; /* отступ между элементами в вертикальном расположении */
+    padding: 15px 10px; /* уменьшаем боковые отступы */
+  }
+
+  .search-bar-item {
+    width: 100%; /* каждая ячейка занимает всю ширину */
+    text-align: center; /* центрируем содержимое */
+  }
+
+  /* Логотип остаётся слева на мобильных, но занимает всю ширину */
+  .search-bar-item:first-child {
+    text-align: left; /* логотип остаётся слева */
+  }
+
+  /* Форма поиска */
+  .search-bar-item:nth-child(2) {
+    flex: 1 1 auto; /* сбрасываем фиксированную ширину */
+  }
+
+  .search-form {
+    justify-content: center;
+    max-width: 100%; /* форма занимает всю доступную ширину */
+  }
+
+  .search-form input {
+    min-width: auto; /* снимаем ограничение минимальной ширины */
+    border-radius: 8px 0 0 8px; /* уменьшаем скругление углов */
+    font-size: 13px; /* немного уменьшаем шрифт */
+  }
+
+  .search-form button {
+    border-radius: 0 8px 8px 0; /* уменьшаем скругление углов */
+  }
+
+  /* Корзина */
+  .search-bar-item:last-child {
+    text-align: center; /* на мобильных корзина по центру */
+  }
+
+  .cart-link {
+    font-size: 14px; /* уменьшаем размер текста */
+  }
+}
+
+/* Очень маленькие экраны (смартфоны) */
+@media (max-width: 480px) {
+  .search-bar {
+    padding: 10px 5px; /* ещё уменьшаем отступы */
+    gap: 10px;
+  }
+
+  .search-form input,
+  .search-form button {
+    padding: 6px 8px; /* уменьшаем внутренние отступы */
+    font-size: 12px; /* уменьшаем шрифт */
+  }
+
+  .logo img {
+    height: 32px; /* уменьшаем логотип */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .headers-menu {
@@ -583,17 +672,7 @@ h3 {
 
 
 
-/** {*/
-/*  margin: 0;*/
-/*  padding: 0;*/
-/*  box-sizing: border-box;*/
-/*}*/
 
-/*body {*/
-/*  font-family: Arial, sans-serif;*/
-/*  line-height: 1.6;*/
-/*  background: #f9f9f9;*/
-/*}*/
 
 .footer-container {
   max-width: 1200px;
