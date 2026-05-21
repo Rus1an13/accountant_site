@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="header-info">
+            <div class="info-item">
+                <svg class="icon" viewBox="0 0 24 24" width="25" height="25">
+                    <path fill="currentColor"
+                          d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l1.95-1.95c-.59-.59-1.26-1.07-2-1.43v-1.86c1.63.41 3.37.41 5 0v1.86c-.74.36-1.4.84-2 1.43l1.95 1.95c2.83-1.44 5.15-3.76 6.59-6.59l-1.95-1.95C17.28 6.38 14.96 4.06 12.13 2.62V0H9.87v2.62C7.04 4.06 4.72 6.38 3.28 9.21l1.95 1.95z"/>
+                </svg>
+                <span><a href="tel:+79178022222">+7 (917) 802-22-22</a><br><a href="URL">Заказать звонок</a></span>
+            </div>
+
+            <div class="info-item">
+                <svg class="icon" viewBox="0 0 24 24" width="25" height="25">
+                    <path fill="currentColor"
+                          d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+                    <path fill="currentColor" d="M12.5 7H11v6l5.25 3.15.75-1.25-4.5-2.75z"/>
+                </svg>
+                <span>Время работы:<br>Пн-Вс: 9:00–18:00</span>
+            </div>
+
+            <div class="info-item">
+                <svg class="icon" viewBox="0 0 24 24" width="25" height="25">
+                    <path fill="currentColor"
+                          d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <span>E-MAIL<br>brukmebel@plmail.ru</span>
+            </div>
+
+            <div class="info-item">
+                <svg class="icon" viewBox="0 0 24 24" width="25" height="25">
+                    <path fill="currentColor"
+                          d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm2 15h-4v-1h4v1zm-2-4c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+                </svg>
+                <span>АДРЕС<br>г. Уфа, ул. Проспект Октября, д. 33/2</span>
+            </div>
+
+            <div class="auth">
+                <a href="#login" class="auth-link">Войти</a>
+                <span class="separator">/</span>
+                <a href="#register" class="auth-link">Регистрация</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="search-bar">
+    <div class="search-bar-item">
+        <div class="logo">
+            <a href="index.html"><img src="img/logo.png" alt="Логотип сайта" width="120" height="40">
+            </a>
+        </div>
+    </div>
+    <div class="search-bar-item">
+        <form class="search-form" action="/search" method="get">
+            <input type="search" name="q" placeholder="Поиск" aria-label="Строка поиска">
+            <button type="submit" aria-label="Выполнить поиск">
+                🔍
+            </button>
+        </form>
+    </div>
+    <div class="search-bar-item">
+        <a href="/cart" class="cart-link">
+            🛒 Корзина (<span id="cart-count">0</span>)
+        </a>
+    </div>
+</div>
+
+
+<div class="headers-menu">
+    <button type="button"><a href="company.html" class="header-menu">О КОМПАНИИ</a></button>
+    <button type="button"><a href="/contacts" class="header-menu">КОНТАКТЫ</a></button>
+</div>
+
+
+<main class="main">
+    <section class="features">
+        <div class="container">
+            <h1>Контакты</h1>
+
+            <div class="footer-container">
+                <!-- Первая ячейка: контакты -->
+                <div class="contact-info">
+                    <h3>Контакты</h3>
+                    <ul class="contact-list">
+                        <li>Телефон: +7 (347) 123-45-67</li>
+                        <li>Email: info@example.com</li>
+                        <li>Адрес: г. Уфа, Проспект Октября 33/2</li>
+                    </ul>
+                </div>
+
+                <!-- Вторая ячейка: форма обратной связи -->
+                <div class="feedback-form">
+                    <h3>Обратная связь</h3>
+
+                    <div class="form-row">
+                        <input type="text" placeholder="Ваше имя*" class="form-input name-input">
+                        <input type="email" placeholder="Ваш E-mail*" class="form-input email-input">
+                    </div>
+
+                    <textarea placeholder="Сообщение" class="message-input"></textarea>
+
+                    <button type="submit" class="submit-btn">Отправить</button>
+                </div>
+            </div>
+            <div class="footer-container2">
+                <!-- Третья ячейка: карта -->
+                <div class="map-section">
+                    <iframe
+                            src="https://yandex.ru/map-widget/v1/?um=constructor%3A1234567890abcdef&amp;utm_source=mapframe&amp;utm_medium=mapframe"
+                            width="100%"
+                            height="300"
+                            frameborder="0"
+                            allowfullscreen=""
+                            title="Карта: г. Уфа, Проспект Октября 33/2">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+<div class="offer-list">
+    <div class="offer-container">
+        <div class="catalog-section">
+            <h3>Каталог товаров</h3>
+            <ul class="menu-offer-list">
+                <li><a href="#">Мебель для дома</a></li>
+                <li><a href="#">Офисная мебель</a></li>
+                <li><a href="#">Мебель для детского сада</a></li>
+                <li><a href="#">Ученическая мебель для школы</a></li>
+                <li><a href="#">Мебель для торговых помещений</a></li>
+            </ul>
+        </div>
+
+        <div class="about-section">
+            <h3>О нас</h3>
+            <ul class="menu-offer-list">
+                <li><a href="#">О компании</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="header-info">
+            <div class="info-item">
+                <svg class="icon" viewBox="0 0 24 24" width="25" height="25">
+                    <path fill="currentColor"
+                          d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l1.95-1.95c-.59-.59-1.26-1.07-2-1.43v-1.86c1.63.41 3.37.41 5 0v1.86c-.74.36-1.4.84-2 1.43l1.95 1.95c2.83-1.44 5.15-3.76 6.59-6.59l-1.95-1.95C17.28 6.38 14.96 4.06 12.13 2.62V0H9.87v2.62C7.04 4.06 4.72 6.38 3.28 9.21l1.95 1.95z"/>
+                </svg>
+                <span><a href="tel:+79178022222">+7 (917) 802-22-22</a><br><a href="URL">Заказать звонок</a></span>
+            </div>
+
+            <div class="info-item">
+                <svg class="icon" viewBox="0 0 24 24" width="25" height="25">
+                    <path fill="currentColor"
+                          d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+                    <path fill="currentColor" d="M12.5 7H11v6l5.25 3.15.75-1.25-4.5-2.75z"/>
+                </svg>
+                <span>Время работы:<br>Пн-Вс: 9:00–18:00</span>
+            </div>
+
+            <div class="info-item">
+                <svg class="icon" viewBox="0 0 24 24" width="25" height="25">
+                    <path fill="currentColor"
+                          d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <span>E-MAIL<br>brukmebel@plmail.ru</span>
+            </div>
+
+            <div class="info-item">
+                <svg class="icon" viewBox="0 0 24 24" width="25" height="25">
+                    <path fill="currentColor"
+                          d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm2 15h-4v-1h4v1zm-2-4c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+                </svg>
+                <span>АДРЕС<br>г. Уфа, ул. Проспект Октября, д. 33/2</span>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
