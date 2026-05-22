@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аутсорс бухгалтерия</title>
+    <link rel="stylesheet" href="style.css">
+
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-family: Arial, sans-serif;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            text-align: left;
+            padding: 12px;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .highlight {
+            background-color: #ffebcd; /* Желтый акцент для важных строк */
+        }
+    </style>
+
+
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="header-info">
+            <div class="info-item">
+                <svg class="icon" viewBox="0 0 24 24" width="25" height="25">
+                    <path fill="currentColor"
+                          d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l1.95-1.95c-.59-.59-1.26-1.07-2-1.43v-1.86c1.63.41 3.37.41 5 0v1.86c-.74.36-1.4.84-2 1.43l1.95 1.95c2.83-1.44 5.15-3.76 6.59-6.59l-1.95-1.95C17.28 6.38 14.96 4.06 12.13 2.62V0H9.87v2.62C7.04 4.06 4.72 6.38 3.28 9.21l1.95 1.95z"/>
+                </svg>
+                <span><a href="tel:+79178022222">+7 (917) 802-22-22</a><br><a href="URL">Заказать звонок</a></span>
+            </div>
+
+            <div class="info-item">
+                <svg class="icon" viewBox="0 0 24 24" width="25" height="25">
+                    <path fill="currentColor"
+                          d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+                    <path fill="currentColor" d="M12.5 7H11v6l5.25 3.15.75-1.25-4.5-2.75z"/>
+                </svg>
+                <span>Время работы:<br>Пн-Вс: 9:00–18:00</span>
+            </div>
+
+            <div class="info-item">
+                <svg class="icon" viewBox="0 0 24 24" width="25" height="25">
+                    <path fill="currentColor"
+                          d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <span>E-MAIL<br>brukmebel@plmail.ru</span>
+            </div>
+
+            <div class="info-item">
+                <svg class="icon" viewBox="0 0 24 24" width="25" height="25">
+                    <path fill="currentColor"
+                          d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm2 15h-4v-1h4v1zm-2-4c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+                </svg>
+                <span>АДРЕС<br>г. Уфа, ул. Проспект Октября, д. 33/2</span>
+            </div>
+
+            <!--            <div class="auth">-->
+            <!--                <a href="#login" class="auth-link">Войти</a>-->
+            <!--                <span class="separator">/</span>-->
+            <!--                <a href="#register" class="auth-link">Регистрация</a>-->
+            <!--            </div>-->
+        </div>
+    </div>
+</header>
+
+<div class="search-bar">
+    <div class="search-bar-item">
+        <div class="logo">
+            <a href="index.html"><img src="img/logo.png" alt="Логотип сайта" width="120" height="40">
+            </a>
+        </div>
+    </div>
+    <div class="search-bar-item">
+        <form class="search-form" action="/search" method="get">
+            <input type="search" name="q" placeholder="Поиск" aria-label="Строка поиска">
+            <button type="submit" aria-label="Выполнить поиск">
+                🔍
+            </button>
+        </form>
+    </div>
+    <div class="search-bar-item">
+        <a href="/cart" class="cart-link">
+            🛒 Корзина (<span id="cart-count">0</span>)
+        </a>
+    </div>
+</div>
+
+
+<div class="headers-menu">
+    <button type="button"><a href="company.html" class="header-menu">О КОМПАНИИ</a></button>
+    <button type="button"><a href="contacts.html" class="header-menu">КОНТАКТЫ</a></button>
+</div>
+
+
+<main class="main">
+    <section class="features">
+        <div class="container">
+            <table>
+                <thead>
+                <tr>
+                    <th>Наименование услуги</th>
+                    <th>Аутсорс</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Нулевки ИП (УСН, Патент, страх.взносы, квитанции, сверки)</td>
+                    <td>от 2000</td>
+                </tr>
+                <tr>
+                    <td>Патент ИП (книга, заявления, квитанции, напоминалки)</td>
+                    <td>3500</td>
+                </tr>
+                <tr>
+                    <td>УСН ИП 6%</td>
+                    <td>4000</td>
+                </tr>
+                <tr>
+                    <td>УСН ИП 15% (до 20 операций)</td>
+                    <td>3500</td>
+                </tr>
+                <tr>
+                    <td>УСН ИП 15% (от 21 до 100 операций)</td>
+                    <td>10000</td>
+                </tr>
+                <tr>
+                    <td>УСН ИП 15% (от 101 операции)</td>
+                    <td>по количеству операций</td>
+                </tr>
+                <tr>
+                    <td>ОСНО</td>
+                    <td>от 22 по 400</td>
+                </tr>
+                <tr>
+                    <td>ОСНО (е/кварт НДС, консультации)</td>
+                    <td>10000</td>
+                </tr>
+                <tr>
+                    <td>Нулевки ООО (все отчеты: налоговая, соцстрах, пенсионный, росстат)</td>
+                    <td>2 500,00 ₽</td>
+                </tr>
+                <tr>
+                    <td>УСН ООО 6%</td>
+                    <td>7000</td>
+                </tr>
+                <tr>
+                    <td>УСН ООО 15% (только сопровождение)</td>
+                    <td>2 500,00 ₽</td>
+                </tr>
+                <tr>
+                    <td>ОСНО ООО (только сопровождение)</td>
+                    <td>10 000,00 ₽</td>
+                </tr>
+                <tr>
+                    <td>Работники (все отчеты по сотрудникам за квартал)</td>
+                    <td>3 000,00 ₽</td>
+                </tr>
+                <tr>
+                    <td>Расчет ЗП (начисление ЗП за 1 человека в мес)</td>
+                    <td>1500</td>
+                </tr>
+                <tr class="highlight">
+                    <td>*если считаем по количеству операций, то только расчет ЗП прибавляем, отчеты входят в
+                        стоимость.
+                    </td>
+                    <td>по количеству операций</td>
+                </tr>
+                <tr>
+                    <td>АУСН Доходы 8% ИП</td>
+                    <td>6500</td>
+                </tr>
+                <tr>
+                    <td>АУСН Доходы 8% ООО</td>
+                    <td>9000</td>
+                </tr>
+                <tr>
+                    <td>АУСН Доходы-Расходы 20% ИП</td>
+                    <td>по количеству операций</td>
+                </tr>
+                <tr>
+                    <td>АУСН Доходы-Расходы 20% ООО</td>
+                    <td>по количеству операций</td>
+                </tr>
+                <tr>
+                    <td>Подключение к базе 1С (в месяц)</td>
+                    <td>1500</td>
+                </tr>
+                <tr>
+                    <td>Составление заявлений по унифиц.формам</td>
+                    <td>2500</td>
+                </tr>
+                <tr>
+                    <td>Декларации 3-НДФЛ</td>
+                    <td>2000</td>
+                </tr>
+                <tr>
+                    <td>Подготовка квитанций на оплату налогов, 1 шт</td>
+                    <td>250</td>
+                </tr>
+                <tr>
+                    <td>Составление уточненных расчетов по вине заказчика</td>
+                    <td>8000</td>
+                </tr>
+                <tr>
+                    <td>Составление первичных документов (акт+счет или договор)</td>
+                    <td>3000</td>
+                </tr>
+                <tr class="highlight">
+                    <td>Экспресс аудит бухгалтерского и налогового учета</td>
+                    <td>15000</td>
+                </tr>
+                <tr>
+                    <td>Ответ на требование (по встречным проверкам)</td>
+                    <td>8000</td>
+                </tr>
+                <tr>
+                    <td>Ведение клиент-банка (формирование платежей для оп)</td>
+                    <td>3000</td>
+                </tr>
+                <tr>
+                    <td>Консультация</td>
+                    <td>5000</td>
+                </tr>
+                <tr>
+                    <td>Возмещение налога из бюджета</td>
+                    <td>от 5000</td>
+                </tr>
+                <tr>
+                    <td>Кадровый учет "с нуля"</td>
+                    <td>от 10000</td>
+                </tr>
+                <tr>
+                    <td>Введение бухгалтерского и налогового учета ИП без сотрудников</td>
+                    <td>от 5000</td>
+                </tr>
+                <tr>
+                    <td>Восстановление учета</td>
+                    <td>от 10000</td>
+                </tr>
+                <tr>
+                    <td>Регистрация ИП</td>
+                    <td>от 8000</td>
+                </tr>
+                <tr>
+                    <td>Регистрация ООО</td>
+                    <td>от 8000</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
+
+<div class="offer-list">
+    <div class="offer-container">
+        <div class="catalog-section">
+            <h3>Каталог услуг</h3>
+            <ul class="menu-offer-list">
+                <li><a href="#">Аудит финансовой отчётности</a></li>
+                <li><a href="#">Расчёт заработной платы</a></li>
+                <li><a href="#">Подготовка и сдача отчётов</a></li>
+                <li><a href="#">Консультации</a></li>
+                <li><a href="#">Подключение к базе 1С</a></li>
+                <li><a href="#">Декларации 3-НДФЛ</a></li>
+                <li><a href="#">Регистрация ИП</a></li>
+                <li><a href="#">Регистрация ООО</a></li>
+            </ul>
+        </div>
+
+        <div class="about-section">
+            <h3>О нас</h3>
+            <ul class="menu-offer-list">
+                <li><a href="company.html">О компании</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-info">
+            <div class="info-footer-item">
+                <svg class="icon" viewBox="0 0 24 24" width="25" height="25">
+                    <path fill="currentColor"
+                          d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l1.95-1.95c-.59-.59-1.26-1.07-2-1.43v-1.86c1.63.41 3.37.41 5 0v1.86c-.74.36-1.4.84-2 1.43l1.95 1.95c2.83-1.44 5.15-3.76 6.59-6.59l-1.95-1.95C17.28 6.38 14.96 4.06 12.13 2.62V0H9.87v2.62C7.04 4.06 4.72 6.38 3.28 9.21l1.95 1.95z"/>
+                </svg>
+                <span><a href="tel:+79178022222">+7 (917) 802-22-22</a><br><a href="URL">Заказать звонок</a></span>
+            </div>
+
+            <div class="info-footer-item">
+                <svg class="icon" viewBox="0 0 24 24" width="25" height="25">
+                    <path fill="currentColor"
+                          d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+                    <path fill="currentColor" d="M12.5 7H11v6l5.25 3.15.75-1.25-4.5-2.75z"/>
+                </svg>
+                <span>Время работы:<br>Пн-Вс: 9:00–18:00</span>
+            </div>
+
+            <div class="info-footer-item">
+                <svg class="icon" viewBox="0 0 24 24" width="25" height="25">
+                    <path fill="currentColor"
+                          d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <span>E-MAIL<br>brukmebel@plmail.ru</span>
+            </div>
+
+            <div class="info-footer-item">
+                <svg class="icon" viewBox="0 0 24 24" width="25" height="25">
+                    <path fill="currentColor"
+                          d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm2 15h-4v-1h4v1zm-2-4c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+                </svg>
+                <span>АДРЕС<br>г. Уфа, ул. Проспект Октября, д. 33/2</span>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
