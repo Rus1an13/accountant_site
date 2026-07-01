@@ -303,6 +303,28 @@ body {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .headers-menu {
     display: flex;
     justify-content: center; /* Равномерное распределение с отступами по краям */
@@ -357,37 +379,66 @@ body {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .full-width-banner {
     position: relative;
     width: 100%;
     height: 600px;
     overflow: hidden;
-    max-height: 100vh;
+    /*max-height: 100vh;*/
 }
 
 .banner-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
-    z-index: 1; /* картинка на заднем плане */
-    position: absolute;
-    top: 0;
-    left: 0;
+    /*display: block;*/
+    /*z-index: 1; !* картинка на заднем плане *!*/
+
 }
 
 .banner-content {
-    max-width: 1200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     margin: 0 auto;
     padding: 40px 20px;
-    box-sizing: border-box;
-    position: relative;
-    min-height: 600px;
+    /*box-sizing: border-box;*/
+    /*position: relative;*/
+    /*min-height: 600px;*/
     height: 100%; /* занимает всю высоту родителя */
     z-index: 2; /* контент поверх картинки */
     display: flex;
-    flex-direction: column;
+    /*flex-direction: column;*/
     justify-content: center; /* вертикальное центрирование */
+    align-items: center;
+    text-align: center;
 }
 
 .main-text {
@@ -405,7 +456,7 @@ body {
 .order-button {
     position: absolute;
     bottom: 0; /* отступ от нижнего края контейнера */
-    left: 0; /* отступ от левого края контейнера */
+    left: 25%; /* отступ от левого края контейнера */
     background-color: #9C6548;
     color: white;
     padding: 12px 24px;
@@ -421,43 +472,34 @@ body {
     background-color: #80533B;
 }
 
-/* Адаптация для планшетов (до 1024px) */
-/*@media (max-width: 1024px) {*/
-/*    .full-width-banner {*/
-/*        height: 500px; !* Уменьшаем высоту *!*/
-/*    }*/
 
-/*    .main-text {*/
-/*        font-size: 32px;*/
-/*        margin-bottom: 25px;*/
-/*    }*/
-
-/*    .order-button {*/
-/*        padding: 10px 20px;*/
-/*        font-size: 14px;*/
-/*    }*/
-/*}*/
-
-/* Адаптация для небольших планшетов и больших смартфонов (до 560px) */
+ /*Адаптация для небольших планшетов и больших смартфонов (до 560px) */
 @media (max-width: 560px) {
     .full-width-banner {
-        height: 400px; /* Ещё уменьшаем высоту */
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /*padding: 20px;*/
     }
 
     .main-text {
-        position: absolute;
-        font-size: 36px;
-        margin: 10px auto auto 0;
-        /*margin-top: 10px;*/
+        /*position: static; !* Убираем абсолютное позиционирование *!*/
+        font-size: 24px; /* Уменьшаем размер шрифта для компактности */
+        /*margin: 0; !* Сбрасываем отступы *!*/
+        text-align: left; /* Центрируем текст */
     }
 
-    /*.order-button {*/
-    /*    bottom: 15px;*/
-    /*    left: 15px;*/
-    /*    padding: 8px 16px;*/
-    /*    font-size: 13px;*/
-    /*}*/
+    /* Убедитесь, что кнопка тоже адаптируется */
+    .order-button {
+        font-size: 16px;
+        padding: 10px 20px;
+        width: auto;
+        max-width: 100%;
+    }
 }
+
 
 /* Адаптация для смартфонов (до 480px) */
 @media (max-width: 480px) {
@@ -471,7 +513,7 @@ body {
 
     .main-text {
         font-size: 22px;
-        margin-bottom: 15px;
+        /*margin-bottom: 15px;*/
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
     }
 
@@ -498,6 +540,29 @@ body {
         font-size: 11px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* Main content */
