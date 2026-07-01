@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab88ddd0-e38f-4800-aedb-164adc814ec0" name="Changes" comment="6 change">
-      <change afterPath="$PROJECT_DIR$/declaration.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payroll_calculation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company.html" beforeDir="false" afterPath="$PROJECT_DIR$/company.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
-    </list>
+    <list default="true" id="ab88ddd0-e38f-4800-aedb-164adc814ec0" name="Changes" comment="7 change" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,7 +99,7 @@
       <workItem from="1781066169880" duration="1159000" />
       <workItem from="1782710466647" duration="678000" />
       <workItem from="1782929062932" duration="697000" />
-      <workItem from="1782937265705" duration="3326000" />
+      <workItem from="1782937265705" duration="3500000" />
     </task>
     <task id="LOCAL-00001" summary="21.05.26">
       <option name="closed" value="true" />
@@ -174,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779473504443</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="7 change">
+      <option name="closed" value="true" />
+      <created>1782940785600</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1782940785600</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,6 +209,7 @@
     <MESSAGE value="4 change" />
     <MESSAGE value="5 change" />
     <MESSAGE value="6 change" />
-    <option name="LAST_COMMIT_MESSAGE" value="6 change" />
+    <MESSAGE value="7 change" />
+    <option name="LAST_COMMIT_MESSAGE" value="7 change" />
   </component>
 </project>
