@@ -222,20 +222,18 @@
       <label style="display:block; margin-bottom:8px;">Email</label>
       <input type="email" name="user_email" style="width:100%; padding:8px; margin-bottom:12px; box-sizing:border-box;" required>
 
-
-        <label style="display:block; margin-bottom:8px;">Телефон</label>
-        <input type="tel" id="userPhone" name="user_phone" placeholder="+7 (___) ___-__-__" style="width:100%; padding:8px; margin-bottom:12px; box-sizing:border-box;" autocomplete="tel">
+      <label style="display:block; margin-bottom:8px;">Телефон</label>
+      <input type="tel" id="userPhone" name="user_phone" placeholder="+7 (___) ___-__-__" style="width:100%; padding:8px; margin-bottom:12px; box-sizing:border-box;" autocomplete="tel">
+      <div id="phoneError" style="color:#dc3545; font-size:13px; margin-top:4px; margin-bottom:8px; display:none;"></div>
 
       <label style="display:block; margin-bottom:8px;">Сообщение</label>
       <textarea name="message" style="width:100%; padding:8px; height:120px; box-sizing:border-box; margin-bottom:12px;" required></textarea>
 
-      <button type="submit" style="padding:10px 20px; background:#007bff; color:#fff; border:none; cursor:pointer; border-radius:4px;">Отправить</button>
+      <button id="submitBtn" type="submit" style="padding:10px 20px; background:#007bff; color:#fff; border:none; cursor:pointer; border-radius:4px;">Отправить</button>
     </form>
     <button id="closeModalBtn" type="button" style="position:absolute; top:12px; right:16px; background:none; border:none; font-size:24px; cursor:pointer;">&times;</button>
   </div>
 </div>
-
-
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
@@ -245,36 +243,141 @@
   var openBtn = document.getElementById("openModalBtn");
   var closeBtn = document.getElementById("closeModalBtn");
   var form = document.getElementById("contactForm");
-  var statusEl = document.getElementById("formStatus"); // ← переименовали!
+  var statusEl = document.getElementById("formStatus");
+  var phoneInput = document.getElementById("userPhone");
+  var phoneError = document.getElementById("phoneError");
+  var submitBtn = document.getElementById("submitBtn");
 
+  // --- Вспомогательные функции ---
   function closeModal() {
     modal.style.display = "none";
     statusEl.textContent = "";
+    if (phoneInput) phoneInput.value = "+7";
+    if (phoneError) phoneError.style.display = "none";
+    toggleSubmitButton(false);
   }
 
+  function updatePhoneError(show, message) {
+    if (phoneError) {
+      phoneError.style.display = show ? "block" : "none";
+      if (message) phoneError.textContent = message;
+    }
+  }
+
+  function checkPhoneValidity(value) {
+    var digitsOnly = value.replace(/[^0-9]/g, "");
+    return digitsOnly.length === 11 && digitsOnly.startsWith("7");
+  }
+
+  function toggleSubmitButton(isValid) {
+    if (!submitBtn) return;
+    submitBtn.disabled = !isValid;
+    submitBtn.style.opacity = isValid ? "1" : "0.6";
+    submitBtn.style.cursor = isValid ? "pointer" : "not-allowed";
+  }
+
+  // --- Кнопка открытия модалки ---
   openBtn.addEventListener("click", function() {
     modal.style.display = "block";
     statusEl.textContent = "";
     statusEl.style.color = "";
+    if (phoneInput && !phoneInput.value.trim()) phoneInput.value = "+7";
+    toggleSubmitButton(false);
   });
 
   closeBtn.addEventListener("click", closeModal);
-
   window.addEventListener("click", function(e) {
     if (e.target === modal) closeModal();
   });
 
+  // --- Маска телефона +7 (___) ___-__-__ ---
+  if (phoneInput) {
+    if (!phoneInput.value.trim()) phoneInput.value = "+7";
+
+    phoneInput.addEventListener("input", function(e) {
+      var x = e.target.value.replace(/\D/g, "").substring(0, 11);
+
+      if (x === "" || x === "7") {
+        e.target.value = "+7";
+        updatePhoneError(false);
+        toggleSubmitButton(false);
+        return;
+      }
+
+      var z;
+      if (x.length === 1) {
+        z = "+7";
+      } else if (x.length <= 4) {
+        z = "+7 (" + x.substring(1, 4) + ")";
+      } else if (x.length <= 7) {
+        z = "+7 (" + x.substring(1, 4) + ") " + x.substring(4, 7);
+      } else {
+        z = "+7 (" + x.substring(1, 4) + ") " + x.substring(4, 7) + "-" + x.substring(7, 9) + "-" + x.substring(9, 11);
+      }
+      e.target.value = z;
+
+      var isValid = checkPhoneValidity(e.target.value);
+      if (!isValid) {
+        updatePhoneError(true, "Укажите полный номер телефона (10 цифр после +7)");
+        toggleSubmitButton(false);
+      } else {
+        updatePhoneError(false);
+        toggleSubmitButton(true);
+      }
+    });
+
+    phoneInput.addEventListener("paste", function(e) {
+      e.preventDefault();
+      var text = (e.clipboardData || window.clipboardData).getData("text").replace(/\D/g, "");
+      if (!text) return;
+
+      var x = text.substring(0, 11);
+      if (x.startsWith("8")) x = "7" + x.substring(1);
+      if (!x.startsWith("7")) x = "7" + x;
+
+      var z;
+      if (x.length <= 4) {
+        z = "+7 (" + x.substring(1, 4) + ")";
+      } else if (x.length <= 7) {
+        z = "+7 (" + x.substring(1, 4) + ") " + x.substring(4, 7);
+      } else {
+        z = "+7 (" + x.substring(1, 4) + ") " + x.substring(4, 7) + "-" + x.substring(7, 9) + "-" + x.substring(9, 11);
+      }
+      phoneInput.value = z;
+
+      var isValid = checkPhoneValidity(phoneInput.value);
+      if (!isValid) {
+        updatePhoneError(true, "Укажите полный номер телефона (10 цифр после +7)");
+        toggleSubmitButton(false);
+      } else {
+        updatePhoneError(false);
+        toggleSubmitButton(true);
+      }
+    });
+  }
+
+  // --- Обработчик отправки формы (ОДИН, без дубликатов) ---
   form.addEventListener("submit", function(e) {
     e.preventDefault();
+
+    var isValid = checkPhoneValidity(form.user_phone.value);
+    if (!isValid) {
+      statusEl.style.color = "#dc3545";
+      statusEl.textContent = "Ошибка: укажите полный номер телефона.";
+      updatePhoneError(true, "Укажите полный номер телефона (10 цифр после +7)");
+      return;
+    }
+
     var btn = form.querySelector("button[type=submit]");
     statusEl.style.color = "#007bff";
     statusEl.textContent = "Отправка...";
     btn.disabled = true;
+    btn.style.opacity = "0.7";
 
     var params = {
       user_name: form.user_name.value,
       user_email: form.user_email.value,
-      user_phone: form.user_phone.value,
+      user_phone: form.user_phone.value.replace(/[^0-9+]/g, ""),
       message: form.message.value
     };
 
@@ -283,83 +386,25 @@
         statusEl.style.color = "#28a745";
         statusEl.textContent = "Спасибо! Сообщение отправлено.";
         form.reset();
+        if (phoneInput) phoneInput.value = "+7";
+        updatePhoneError(false);
+        toggleSubmitButton(false);
         setTimeout(closeModal, 2500);
       }, function(err) {
         statusEl.style.color = "#dc3545";
         statusEl.textContent = "Ошибка отправки. Попробуйте позже.";
+        btn.disabled = false;
+        btn.style.opacity = "1";
       })
       .finally(function() {
-        btn.disabled = false;
+        if (btn) {
+          btn.disabled = false;
+          btn.style.opacity = "1";
+        }
       });
   });
-
-
-
-
-
-// --- Маска телефона +7 (___) ___-__-__ ---
-const phoneInput = document.getElementById('userPhone');
-
-if (phoneInput) {
-  // При загрузке ставим +7, если поле пустое
-  if (!phoneInput.value.trim()) {
-    phoneInput.value = '+7';
-  }
-
-  phoneInput.addEventListener('input', function(e) {
-    let x = e.target.value.replace(/\D/g, '').substring(0, 11); // оставляем только цифры, максимум 11 символов (+7 + 9 цифр)
-
-    // Если пользователь стёр всё — возвращаем +7
-    if (x === '' || x === '7') {
-      e.target.value = '+7';
-      return;
-    }
-
-    // Формируем маску
-    let z;
-    if (x.length === 1) {
-      z = '+7';
-    } else if (x.length <= 4) {
-      // +7 + первые 3 цифры
-      z = `+7 (${x.substring(1, 4)})`;
-    } else if (x.length <= 7) {
-      // +7 (xxx) + следующие 3 цифры
-      z = `+7 (${x.substring(1, 4)}) ${x.substring(4, 7)}`;
-    } else {
-      // +7 (xxx) xxx + последние 4 цифры с дефисами
-      z = `+7 (${x.substring(1, 4)}) ${x.substring(4, 7)}-${x.substring(7, 9)}-${x.substring(9, 11)}`;
-    }
-    e.target.value = z;
-  });
-
-  // Защита от вставки мусора (например, текста вместе с номером)
-  phoneInput.addEventListener('paste', function(e) {
-    e.preventDefault();
-    const text = (e.clipboardData || window.clipboardData).getData('text').replace(/\D/g, '');
-    if (!text) return;
-
-    let x = text.substring(0, 11);
-    if (x.startsWith('8')) x = '7' + x.substring(1); // если вставили 8, меняем на 7
-    if (!x.startsWith('7')) x = '7' + x; // если нет 7 — добавляем
-
-    let z;
-    if (x.length <= 4) {
-      z = `+7 (${x.substring(1, 4)})`;
-    } else if (x.length <= 7) {
-      z = `+7 (${x.substring(1, 4)}) ${x.substring(4, 7)}`;
-    } else {
-      z = `+7 (${x.substring(1, 4)}) ${x.substring(4, 7)}-${x.substring(7, 9)}-${x.substring(9, 11)}`;
-    }
-    phoneInput.value = z;
-  });
-}
-
-
-
 </script>
-
-
-
 
 </body>
 </html>
+
