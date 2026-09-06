@@ -300,82 +300,85 @@
 <!--<script src="script.js"></script>-->
 
 
-<!-- Модальное окно -->
-<div id="contactModal" class="modal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.5);">
-  <div class="modal-content" style="background:#fff; margin:15% auto; padding:30px; width:90%; max-width:500px; border-radius:8px; position:relative; box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+
+
+<!-- Модалка -->
+<div id="contactModal" class="modal" style="display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.5);">
+  <div style="background:#fff;margin:15% auto;padding:30px;width:90%;max-width:500px;border-radius:8px;position:relative;">
     <h3 style="margin-top:0;">Обратная связь</h3>
     <form id="contactForm">
-      <label style="display:block; margin-bottom:8px;">Имя</label>
-      <input type="text" name="user_name" style="width:100%; padding:8px; margin-bottom:12px; box-sizing:border-box;" required>
+      <label style="display:block;margin-bottom:8px;">Имя</label>
+      <input type="text" name="user_name" style="width:100%;padding:8px;margin-bottom:12px;box-sizing:border-box;" required>
 
-      <label style="display:block; margin-bottom:8px;">Email</label>
-      <input type="email" name="user_email" style="width:100%; padding:8px; margin-bottom:12px; box-sizing:border-box;" required>
+      <label style="display:block;margin-bottom:8px;">Email</label>
+      <input type="email" name="user_email" style="width:100%;padding:8px;margin-bottom:12px;box-sizing:border-box;" required>
 
-      <label style="display:block; margin-bottom:8px;">Телефон</label>
-      <input type="tel" name="user_phone" style="width:100%; padding:8px; margin-bottom:12px; box-sizing:border-box;">
+      <label style="display:block;margin-bottom:8px;">Телефон</label>
+      <input type="tel" name="user_phone" style="width:100%;padding:8px;margin-bottom:12px;box-sizing:border-box;">
 
-      <label style="display:block; margin-bottom:8px;">Сообщение</label>
-      <textarea name="message" style="width:100%; padding:8px; height:120px; box-sizing:border-box; margin-bottom:12px;" required></textarea>
+      <label style="display:block;margin-bottom:8px;">Сообщение</label>
+      <textarea name="message" style="width:100%;padding:8px;height:120px;box-sizing:border-box;margin-bottom:12px;" required></textarea>
 
-      <button type="submit" style="padding:10px 20px; background:#007bff; color:#fff; border:none; cursor:pointer; border-radius:4px;">Отправить</button>
+      <button type="submit" style="padding:10px 20px;background:#007bff;color:#fff;border:none;cursor:pointer;border-radius:4px;">Отправить</button>
     </form>
-    <button id="closeModalBtn" type="button" style="position:absolute; top:12px; right:16px; background:none; border:none; font-size:24px; cursor:pointer;">&times;</button>
+    <button id="closeModalBtn" type="button" style="position:absolute;top:12px;right:16px;background:none;border:none;font-size:24px;cursor:pointer;">&times;</button>
   </div>
 </div>
 
 <div id="formStatus" style="margin-top:10px;"></div>
 
-<!-- Скрипты -->
+<!-- Подключаем скрипт ТОЛЬКО ЗДЕСЬ -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
-(function() {
-  // !!! ВСТАВЬ СЮДА СВОЙ USER ID (обязательно с кавычками)
-  emailjs.init("user_xa8oth6IPlCc8edLW");
-})();
+  // !!! ВСТАВЬ НОВЫЙ user_id (не тот, что был в чате!)
+  emailjs.init("EP2Mu8rKD6ZRlRT_M");
 
-const modal = document.getElementById('contactModal');
-const openBtn = document.getElementById('openModalBtn');
-const closeBtn = document.getElementById('closeModalBtn');
-const form = document.getElementById('contactForm');
-const status = document.getElementById('formStatus');
+  var modal = document.getElementById('contactModal');
+  var openBtn = document.getElementById('openModalBtn');
+  var closeBtn = document.getElementById('closeModalBtn');
+  var form = document.getElementById('contactForm');
+  var status = document.getElementById('formStatus');
 
-openBtn.addEventListener('click', () => {
-  modal.style.display = 'block';
-});
-
-closeBtn.addEventListener('click', () => {
-  modal.style.display = 'none';
-  status.textContent = '';
-});
-
-window.addEventListener('click', (e) => {
-  if (e.target === modal) {
+  openBtn.addEventListener('click', function() { modal.style.display = 'block'; });
+  closeBtn.addEventListener('click', function() {
     modal.style.display = 'none';
     status.textContent = '';
-  }
-});
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const btn = form.querySelector('button[type="submit"]');
-  status.textContent = 'Отправка...';
-  btn.disabled = true;
-
-  // !!! ВСТАВЬ SERVICE_ID и TEMPLATE_ID
-  emailjs.sendForm(
-    'service_culscsr',
-    'template_3ymrbmx',
-    form
-  ).then(() => {
-    status.textContent = 'Спасибо! Сообщение отправлено.';
-    form.reset();
-  }, (err) => {
-    status.textContent = 'Ошибка: ' + JSON.stringify(err);
-  }).finally(() => {
-    btn.disabled = false;
   });
-});
+  window.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+      status.textContent = '';
+    }
+  });
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    status.textContent = 'Отправка...';
+    btn.disabled = true;
+
+    var params = {
+      user_name: form.user_name.value,
+      user_email: form.user_email.value,
+      user_phone: form.user_phone.value,
+      message: form.message.value
+    };
+
+    // !!! ВСТАВЬ НОВЫЕ service_id и template_id
+    emailjs.send('service_culscsr', 'template_3ymrbmx', params)
+      .then(function(response) {
+        status.textContent = 'Спасибо! Сообщение отправлено.';
+        form.reset();
+      }, function(err) {
+        console.error('EmailJS error:', err);
+        status.textContent = 'Ошибка: ' + (err.text || JSON.stringify(err));
+      })
+      .finally(function() {
+        btn.disabled = false;
+      });
+  });
 </script>
+
 
 
 </body>
