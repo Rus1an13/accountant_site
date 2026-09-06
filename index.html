@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Аутсорс бухгалтерия</title>
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
 </head>
 <body>
 <header class="header">
@@ -102,6 +104,7 @@
         <div class="banner-content">
             <a href="#" class="main-text">ВАША БУХГАЛТЕРИЯ</a>
             <a href="servises.html" class="order-button">ЗАКАЗАТЬ УСЛУГУ</a>
+            <button id="openModalBtn" class="order-button">СВЯЗАТЬСЯ С НАМИ</button>
         </div>
     </div>
 
@@ -279,35 +282,83 @@
 </footer>
 
 
-<footer style="margin-top: 40px; padding: 20px; border-top: 1px solid #ccc;">
-  <h3>Свяжитесь с нами</h3>
-  <p>
-    <strong>Телефон:</strong>
-    <a href="tel:+79991234567">+7 (999) 123-45-67</a>
-  </p>
-  <p>
-    <strong>Email:</strong>
-    <a href="mailto:accountant@example.com">accountant@example.com</a>
-  </p>
-  <form id="contactForm" style="margin-top: 20px;">
-    <label style="display:block; margin-bottom:8px;">Ваше имя</label>
-    <input type="text" name="user_name" style="width:100%; padding:8px; margin-bottom:12px;" required>
 
-    <label style="display:block; margin-bottom:8px;">Ваш email</label>
-    <input type="email" name="user_email" style="width:100%; padding:8px; margin-bottom:12px;" required>
-
-    <label style="display:block; margin-bottom:8px;">Телефон (необязательно)</label>
-    <input type="tel" name="user_phone" style="width:100%; padding:8px; margin-bottom:12px;" placeholder="+7 (...)">
-
-    <label style="display:block; margin-bottom:8px;">Сообщение</label>
-    <textarea name="message" style="width:100%; padding:8px;" rows="4" required></textarea>
-
-    <button type="submit" style="padding:10px 20px; background:#007bff; color:#fff; border:none; cursor:pointer;">Отправить</button>
-  </form>
-  <div id="formStatus" style="margin-top:10px;"></div>
-</footer>
 
 
 <script src="script.js"></script>
+
+<!-- Модальное окно -->
+<div id="contactModal" class="modal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.5);">
+  <div class="modal-content" style="background:#fff; margin:15% auto; padding:30px; width:90%; max-width:500px; border-radius:8px; position:relative; box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+    <h3 style="margin-top:0;">Обратная связь</h3>
+    <form id="contactForm">
+      <label style="display:block; margin-bottom:8px;">Ваше имя</label>
+      <input type="text" name="user_name" style="width:100%; padding:8px; margin-bottom:12px; box-sizing:border-box;" required>
+
+      <label style="display:block; margin-bottom:8px;">Ваш email</label>
+      <input type="email" name="user_email" style="width:100%; padding:8px; margin-bottom:12px; box-sizing:border-box;" required>
+
+      <label style="display:block; margin-bottom:8px;">Телефон (необязательно)</label>
+      <input type="tel" name="user_phone" style="width:100%; padding:8px; margin-bottom:12px; box-sizing:border-box;" placeholder="+7 (...)">
+
+      <label style="display:block; margin-bottom:8px;">Сообщение</label>
+      <textarea name="message" style="width:100%; padding:8px; height:120px; box-sizing:border-box; margin-bottom:12px;" required></textarea>
+
+      <button type="submit" style="padding:10px 20px; background:#007bff; color:#fff; border:none; cursor:pointer; border-radius:4px;">Отправить</button>
+    </form>
+    <button id="closeModalBtn" type="button" style="position:absolute; top:12px; right:16px; background:none; border:none; font-size:24px; cursor:pointer;">&times;</button>
+  </div>
+</div>
+
+<div id="formStatus" style="margin-top:10px;"></div>
+
+
+    <script>
+        (function() {emailjs.init("xa8oth6IPlCc8edLW"); // <-- сюда вставь свой user_id с emailjs.com})();
+    </script>
+    <script>
+const modal = document.getElementById('contactModal');
+const openBtn = document.getElementById('openModalBtn');
+const closeBtn = document.getElementById('closeModalBtn');
+const form = document.getElementById('contactForm');
+const status = document.getElementById('formStatus');
+
+openBtn.addEventListener('click', () => {
+  modal.style.display = 'block';
+});
+
+closeBtn.addEventListener('click', () => {
+  modal.style.display = 'none';
+  status.textContent = '';
+});
+
+// Закрыть по клику вне окна
+window.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+    status.textContent = '';
+  }
+});
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const btn = form.querySelector('button[type="submit"]');
+  status.textContent = 'Отправка...';
+  btn.disabled = true;
+
+  emailjs.sendForm('service_8vsj5ta', 'template_bnwkaov', form) // <-- подставь service_id и template_id
+    .then(() => {
+      status.textContent = 'Спасибо! Сообщение отправлено.';
+      form.reset();
+    }, (err) => {
+      status.textContent = 'Ошибка отправки: ' + JSON.stringify(err);
+    })
+    .finally(() => {
+      btn.disabled = false;
+    });
+});
+</script>
+
+
 </body>
 </html>

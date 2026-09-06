@@ -472,6 +472,11 @@ body {
     background-color: #80533B;
 }
 
+#openModalBtn {
+margin-left: 400px;
+}
+
+
 
  /*Адаптация для небольших планшетов и больших смартфонов (до 560px) */
 @media (max-width: 560px) {
