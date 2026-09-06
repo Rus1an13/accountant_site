@@ -8,6 +8,7 @@
 <!--    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>-->
 
 </head>
+
 <body>
 <header class="header">
     <div class="container">
@@ -104,29 +105,28 @@
         <div class="banner-content">
             <a href="#" class="main-text">ВАША БУХГАЛТЕРИЯ</a>
             <a href="servises.html" class="order-button">ЗАКАЗАТЬ УСЛУГУ</a>
-<!--            <button id="openModalBtn" class="order-button">СВЯЗАТЬСЯ С НАМИ</button>-->
 
-<button id="openModalBtn" style="
-    width: 120px;
-    height: 120px;
-    padding: 0;
-    background: #9C6548;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    line-height: 1.2;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 9999;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-    СВЯЗАТЬСЯ С НАМИ
-</button>
+<!--<button id="openModalBtn" style="-->
+<!--    width: 120px;-->
+<!--    height: 120px;-->
+<!--    padding: 0;-->
+<!--    background: #9C6548;-->
+<!--    color: #fff;-->
+<!--    border: none;-->
+<!--    cursor: pointer;-->
+<!--    border-radius: 50%;-->
+<!--    display: flex;-->
+<!--    align-items: center;-->
+<!--    justify-content: center;-->
+<!--    font-size: 14px;-->
+<!--    line-height: 1.2;-->
+<!--    position: fixed;-->
+<!--    bottom: 150px;-->
+<!--    right: 100px;-->
+<!--    z-index: 9999;-->
+<!--    box-shadow: 0 4px 12px rgba(0,0,0,0.2);">-->
+<!--    СВЯЗАТЬСЯ С НАМИ-->
+<!--</button>-->
         </div>
     </div>
 
@@ -191,27 +191,7 @@
         </div>
     </section>
 
-<!--    <section id="contact" class="contact">-->
-<!--        <div class="container">-->
-<!--            <h2>Обратная связь</h2>-->
-<!--            <form id="contactForm" class="contact-form">-->
-<!--                <div class="form-group">-->
-<!--                    <label for="name">Имя:</label>-->
-<!--                    <input type="text" id="name" name="name" required>-->
-<!--                </div>-->
-<!--                <div class="form-group">-->
-<!--                    <label for="email">Email:</label>-->
-<!--                    <input type="email" id="email" name="email" required>-->
-<!--                </div>-->
-<!--                <div class="form-group">-->
-<!--                    <label for="message">Сообщение:</label>-->
-<!--                    <textarea id="message" name="message" rows="4" required></textarea>-->
-<!--                </div>-->
-<!--                <button type="submit" class="btn btn-primary">Отправить</button>-->
-<!--            </form>-->
-<!--            <div id="formMessage" class="form-message"></div>-->
-<!--        </div>-->
-<!--    </section>-->
+
 </main>
 
 
@@ -306,41 +286,55 @@
 
 
 
+</footer>
 
-<!--<script src="script.js"></script>-->
+<button id="openModalBtn" style="
+    width: 120px;
+    height: 120px;
+    padding: 0;
+    background: #9C6548;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 1.2;
+    position: fixed;
+    bottom: 150px;
+    right: 100px;
+    z-index: 9999;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+    СВЯЗАТЬСЯ С НАМИ
+</button>
 
-
-
-
-<!-- Модалка -->
-<div id="contactModal" class="modal" style="display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.5);">
-  <div style="background:#fff;margin:15% auto;padding:30px;width:90%;max-width:500px;border-radius:8px;position:relative;">
+<div id="contactModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.5);">
+  <div style="background:#fff; margin:15% auto; padding:30px; width:90%; max-width:500px; border-radius:8px; position:relative;">
     <h3 style="margin-top:0;">Обратная связь</h3>
+    <div id="formStatus" style="margin:12px 0; font-weight:bold; min-height:24px;"></div>
     <form id="contactForm">
-      <label style="display:block;margin-bottom:8px;">Имя</label>
-      <input type="text" name="user_name" style="width:100%;padding:8px;margin-bottom:12px;box-sizing:border-box;" required>
+      <label style="display:block; margin-bottom:8px;">Имя</label>
+      <input type="text" name="user_name" style="width:100%; padding:8px; margin-bottom:12px; box-sizing:border-box;" required>
 
-      <label style="display:block;margin-bottom:8px;">Email</label>
-      <input type="email" name="user_email" style="width:100%;padding:8px;margin-bottom:12px;box-sizing:border-box;" required>
+      <label style="display:block; margin-bottom:8px;">Email</label>
+      <input type="email" name="user_email" style="width:100%; padding:8px; margin-bottom:12px; box-sizing:border-box;" required>
 
-      <label style="display:block;margin-bottom:8px;">Телефон</label>
-      <input type="tel" name="user_phone" style="width:100%;padding:8px;margin-bottom:12px;box-sizing:border-box;">
+      <label style="display:block; margin-bottom:8px;">Телефон</label>
+      <input type="tel" name="user_phone" style="width:100%; padding:8px; margin-bottom:12px; box-sizing:border-box;">
 
-      <label style="display:block;margin-bottom:8px;">Сообщение</label>
-      <textarea name="message" style="width:100%;padding:8px;height:120px;box-sizing:border-box;margin-bottom:12px;" required></textarea>
+      <label style="display:block; margin-bottom:8px;">Сообщение</label>
+      <textarea name="message" style="width:100%; padding:8px; height:120px; box-sizing:border-box; margin-bottom:12px;" required></textarea>
 
-      <button type="submit" style="padding:10px 20px;background:#007bff;color:#fff;border:none;cursor:pointer;border-radius:4px;">Отправить</button>
+      <button type="submit" style="padding:10px 20px; background:#007bff; color:#fff; border:none; cursor:pointer; border-radius:4px;">Отправить</button>
     </form>
-    <button id="closeModalBtn" type="button" style="position:absolute;top:12px;right:16px;background:none;border:none;font-size:24px;cursor:pointer;">&times;</button>
+    <button id="closeModalBtn" type="button" style="position:absolute; top:12px; right:16px; background:none; border:none; font-size:24px; cursor:pointer;">&times;</button>
   </div>
 </div>
 
-<div id="formStatus" style="margin-top:10px;"></div>
-
-<!-- Подключаем скрипт ТОЛЬКО ЗДЕСЬ -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
-  // !!! ВСТАВЬ НОВЫЙ user_id (не тот, что был в чате!)
   emailjs.init("EP2Mu8rKD6ZRlRT_M");
 
   var modal = document.getElementById('contactModal');
@@ -349,22 +343,33 @@
   var form = document.getElementById('contactForm');
   var status = document.getElementById('formStatus');
 
-  openBtn.addEventListener('click', function() { modal.style.display = 'block'; });
+  openBtn.addEventListener('click', function() {
+    modal.style.display = 'block';
+    if (status) {
+      status.textContent = '';
+      status.style.color = '';
+    }
+  });
+
   closeBtn.addEventListener('click', function() {
     modal.style.display = 'none';
-    status.textContent = '';
+    if (status) status.textContent = '';
   });
+
   window.addEventListener('click', function(e) {
     if (e.target === modal) {
       modal.style.display = 'none';
-      status.textContent = '';
+      if (status) status.textContent = '';
     }
   });
 
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     var btn = form.querySelector('button[type="submit"]');
-    status.textContent = 'Отправка...';
+    if (status) {
+      status.style.color = '#007bff';
+      status.textContent = 'Отправка...';
+    }
     btn.disabled = true;
 
     var params = {
@@ -374,20 +379,31 @@
       message: form.message.value
     };
 
-    // !!! ВСТАВЬ НОВЫЕ service_id и template_id
     emailjs.send('service_culscsr', 'template_3ymrbmx', params)
       .then(function(response) {
-        status.textContent = 'Спасибо! Сообщение отправлено.';
+        if (status) {
+          status.style.color = '#28a745';
+          status.textContent = 'Спасибо! Сообщение отправлено.';
+        }
         form.reset();
+        setTimeout(function() {
+          modal.style.display = 'none';
+          if (status) status.textContent = '';
+        }, 2500);
       }, function(err) {
-        console.error('EmailJS error:', err);
-        status.textContent = 'Ошибка: ' + (err.text || JSON.stringify(err));
+        if (status) {
+          status.style.color = '#dc3545';
+          status.textContent = 'Ошибка отправки. Попробуйте позже.';
+        }
       })
       .finally(function() {
         btn.disabled = false;
       });
   });
 </script>
+
+
+
 
 
 
