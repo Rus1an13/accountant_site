@@ -73,29 +73,7 @@
     <img src="img/bg.jpg" alt="Бухгалтерские услуги" class="banner-image">
     <div class="banner-content">
         <a href="#" class="main-text">ВАША БУХГАЛТЕРИЯ</a>
-        <a href="servises.html" class="order-button">ЗАКАЗАТЬ УСЛУГУ</a>
-
-        <button id="openModalBtn" style="
-            width: 120px;
-            height: 120px;
-            padding: 0;
-            background: #9C6548;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            line-height: 1.2;
-            position: fixed;
-            bottom: 150px;
-            right: 100px;
-            z-index: 9999;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-            СВЯЗАТЬСЯ С НАМИ
-        </button>
+        <a href="servises.html" class="order-button">ПЕРЕЧЕНЬ УСЛУГ</a>
     </div>
 </div>
 
@@ -114,17 +92,17 @@
                     <h3>Расчёт заработной платы</h3>
                     <p>1 500 ₽</p>
                 </a>
-                <a href="#" class="feature-card">
+                <a href="submission_of_reports.html" class="feature-card">
                     <img src="img/podgotovka.png" alt="audit">
                     <h3>Подготовка и сдача отчётов</h3>
                     <p>1 500 ₽</p>
                 </a>
-                <a href="#" class="feature-card">
+                <a href="consultation.html" class="feature-card">
                     <img src="img/konsultatsii.png" alt="audit">
-                    <h3>Консультации</h3>
+                    <h3>Финансовые консультации</h3>
                     <p>5 000 ₽</p>
                 </a>
-                <a href="#" class="feature-card">
+                <a href="1c.html" class="feature-card">
                     <img src="img/1C.jpg" alt="audit">
                     <h3>Подключение к базе 1С</h3>
                     <p>1 500 ₽</p>
@@ -134,12 +112,12 @@
                     <h3>Декларации 3-НДФЛ</h3>
                     <p>2 000 ₽</p>
                 </a>
-                <a href="#" class="feature-card">
+                <a href="ip.html" class="feature-card">
                     <img src="img/ip.jpg" alt="audit">
                     <h3>Регистрация ИП</h3>
                     <p>от 8 000 ₽</p>
                 </a>
-                <a href="#" class="feature-card">
+                <a href="ooo.html" class="feature-card">
                     <img src="img/ooo.jpg" alt="audit">
                     <h3>Регистрация ООО</h3>
                     <p>от 8 000 ₽</p>
@@ -156,12 +134,12 @@
             <ul class="menu-offer-list">
                 <li><a href="audit.html">Аудит финансовой отчётности</a></li>
                 <li><a href="payroll_calculation.html">Расчёт заработной платы</a></li>
-                <li><a href="#">Подготовка и сдача отчётов</a></li>
-                <li><a href="#">Консультации</a></li>
-                <li><a href="#">Подключение к базе 1С</a></li>
+                <li><a href="submission_of_reports.html">Подготовка и сдача отчётов</a></li>
+                <li><a href="consultation.html">Финансовые консультации</a></li>
+                <li><a href="1c.html">Подключение к базе 1С</a></li>
                 <li><a href="declaration.html">Декларации 3-НДФЛ</a></li>
-                <li><a href="#">Регистрация ИП</a></li>
-                <li><a href="#">Регистрация ООО</a></li>
+                <li><a href="ip.html">Регистрация ИП</a></li>
+                <li><a href="ooo.html">Регистрация ООО</a></li>
             </ul>
         </div>
         <div class="about-section">
@@ -210,6 +188,33 @@
     </div>
 </footer>
 
+
+
+
+<!-- Кнопка модального окна -->
+<button id="openModalBtn" style="
+            width: 120px;
+            height: 120px;
+            padding: 0;
+            background: #9C6548;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            line-height: 1.2;
+            position: fixed;
+            bottom: 150px;
+            right: 100px;
+            z-index: 9999;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+            СВЯЗАТЬСЯ С НАМИ
+        </button>
+
+
 <!-- Модальное окно -->
 <div id="contactModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.5);">
   <div style="background:#fff; margin:15% auto; padding:30px; width:90%; max-width:500px; border-radius:8px; position:relative;">
@@ -237,7 +242,7 @@
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
-  emailjs.init("EP2Mu8rKD6ZRlRT_M");
+  emailjs.init("qrlCY1YkNg0KtrrC6");
 
   var modal = document.getElementById("contactModal");
   var openBtn = document.getElementById("openModalBtn");
@@ -381,7 +386,7 @@
       message: form.message.value
     };
 
-    emailjs.send("service_culscsr", "template_3ymrbmx", params)
+    emailjs.send("service_jkx0bwl", "template_y0ejdl7", params)
       .then(function(response) {
         statusEl.style.color = "#28a745";
         statusEl.textContent = "Спасибо! Сообщение отправлено.";

@@ -25,11 +25,11 @@ body {
     z-index: 1000;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+/*.container {*/
+/*    max-width: 1200px;*/
+/*    margin: 0 auto;*/
+/*    padding: 0 20px;*/
+/*}*/
 
 .header-info {
     display: flex;
@@ -576,13 +576,13 @@ margin-left: 400px;
 }
 
 .features h1 {
-    text-align: left;
+    text-align: center;
     font-size: 3rem;
 }
 
 .features h2,
 .contact h2 {
-    text-align: center;
+    text-align: left;
     margin-bottom: 3rem;
     font-size: 2rem;
 }
